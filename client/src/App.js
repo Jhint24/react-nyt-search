@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Search from './components/Search';
 import SavedArticles from './components/SavedArticles';
-import Search from './components/Form';
+import Form from './components/Form';
 
 class App extends Component {
   state = {
@@ -14,8 +14,6 @@ class App extends Component {
     returnedArticles: []
   };
   handleInputChange = event => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
     const { name, value } = event.target;
     this.setState({
       [name]: value
@@ -24,8 +22,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
-        <Form />
+        <Form onChange={this.handleInputChange} />
       </div>
     );
   }
