@@ -5,32 +5,52 @@ const Form = props => (
     <form>
       <div className="form-group">
         <label htmlFor="search">Search term</label>
-        <input type="text" className="form-control" id="search-term" onChange={props.onChange} />
+        <input
+          type="text"
+          className="form-control"
+          id="search-term"
+          onChange={props.onChange}
+          name="searchTerm"
+        />
       </div>
-
       <div className="form-group">
         <label htmlFor="number-options">Number of Records to Retrieve:</label>
-        <select className="custom-select" id="number-options" onChange={props.onChange}>
+        <select
+          className="custom-select"
+          id="number-options"
+          onChange={props.onChange}
+          name="searchNumber"
+        >
           <option value="1">1</option>
           <option value="5">5</option>
           <option value="10">10</option>
         </select>
       </div>
-
       <div className="form-group">
-        <label htmlFor="start-year">Start Date (DD/MM/YY -ex: 01/01/89)</label>
-        <input type="text" className="form-control" id="start-year" onChange={props.onChange} />
+        <label htmlFor="start-year">Start Date (DD/MM/YY) *Optional* </label>
+        <input
+          type="text"
+          className="form-control"
+          id="start-year"
+          onChange={props.onChange}
+          name="startYear"
+        />
       </div>
-
       <div className="form-group">
-        <label htmlFor="end-year">End Date (DD/MM/YY -ex: 01/01/89)</label>
-        <input type="text" className="form-control" id="end-year" onChange={props.onChange} />
+        <label htmlFor="end-year">End Date (DD/MM/YY) *Optional* </label>
+        <input
+          type="text"
+          className="form-control"
+          id="end-year"
+          onChange={props.onChange}
+          name="endYear"
+        />
       </div>
-
-      <button type="submit" className="btn btn-default" id="run-search">
+      <button type="submit" className="btn btn-default" id="run-search" onClick={this.onClick}>
         <i className="fa fa-search" /> Search
       </button>
-      <button type="button" className="btn btn-default" id="clear-all">
+      <span>{'               '}</span>
+      <button type="button" className="btn btn-default" id="clear-all" onClick={this.onClick2}>
         <i className="fa fa-trash" /> Clear Results
       </button>
     </form>
