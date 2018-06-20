@@ -46,11 +46,11 @@ const Form = props => (
           name="endYear"
         />
       </div>
-      <button type="submit" className="btn btn-default" id="run-search" onClick={this.onClick}>
+      <button type="submit" className="btn btn-default" id="run-search" onClick={props.onClick}>
         <i className="fa fa-search" /> Search
       </button>
       <span>{'               '}</span>
-      <button type="button" className="btn btn-default" id="clear-all" onClick={this.onClick2}>
+      <button type="button" className="btn btn-default" id="clear-all" onClick={props.onClick2}>
         <i className="fa fa-trash" /> Clear Results
       </button>
     </form>

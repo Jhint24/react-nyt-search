@@ -1,12 +1,15 @@
 import React from 'react';
 
 const Articles = props => (
-  <div className="results-container container">
-    {/* <h2 id="article-title">{props}</h2>
-    <p>{props}</p>
-    <p>{props}</p>
-    <p>{props}</p> */}
+  <div className="container">
+    <li className="list-group-item">
+      <h4>
+        <span>
+          <em>{props.title}</em>
+        </span>
+      </h4>
+      <p>Date Published: {props.date}</p>
+    </li>
   </div>
 );
-
 export default Articles;

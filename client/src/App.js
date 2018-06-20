@@ -22,9 +22,20 @@ class App extends Component {
 
   searchArticles = event => {
     event.preventDefault();
-    API.scrapeArticles(this.state)
+    console.log('Articles to follow');
+    console.log('searchTerm:', this.state.searchTerm);
+    console.log('startYear:', this.state.startYear);
+    console.log('searchNumber:', this.state.searchNumber);
+    console.log('endYear: ', this.state.endYear);
+    API.scrapeArticles(
+      this.state.searchTerm,
+      this.state.searchNumber,
+      this.state.startYear,
+      this.state.endYear
+    )
       .then(res => {
-        console.log(res);
+        this.setState({ returnedArticles: res.data.response.docs });
+        console.log('returnedArticles: ', this.state.returnedArticles);
       })
       .catch(err => console.log(err));
   };
@@ -37,11 +48,7 @@ class App extends Component {
     console.log(this.state);
     return (
       <div className="App">
-        <Form
-          onChange={this.handleInputChange}
-          onClick={this.searchArticles}
-          onClick2={this.clearArticles}
-        />
+        <Form onChange={this.handleInputChange} onClick={this.searchArticles} />
         <Articles />
       </div>
     );
