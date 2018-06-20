@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import Articles from './components/Articles';
 import SavedArticles from './components/SavedArticles';
 import Form from './components/Form';
+import Container from './components/Container';
 import API from './utils/API';
 class App extends Component {
   state = {
@@ -29,6 +30,16 @@ class App extends Component {
     console.log('endYear: ', this.state.endYear);
     API.scrapeArticles(this.state)
       .then(res => {
+        // this.state.articles.map(
+        //   article => (
+        //     (_id = article._id),
+        //     (key = article._id),
+        //     (date = article.pub_date),
+        //     (title = article.headline.main),
+        //     (url = article.web_url)
+        //   )
+        // );
+
         this.setState({ returnedArticles: res.data.response.docs });
         console.log('returnedArticles: ', this.state.returnedArticles);
       })
@@ -53,17 +64,6 @@ class App extends Component {
     });
   };
 
-  returnArticles = () => {
-    return {this.state.returnedArticles.map(indArticle => (
-      <Articles
-        _id={indArticle._id}
-        key={indArticle._id}
-        title={indArticle.headline.main}
-        date={indArticle.pub_date}
-        url={indArticle.web_url}
-      />
-    ))}
-  };
   render() {
     console.log(this.state);
     return (
@@ -75,6 +75,17 @@ class App extends Component {
           onClick3={this.clearArticles}
           returnArticles={this.returnArticles}
         />
+        <Container>
+          {this.state.returnedArticles.map(indArticle => (
+            <Articles
+              _id={this.renderArticles._id}
+              key={this.renderArticles.key}
+              date={this.renderArticles.date}
+              title={this.renderArticles.title}
+              url={this.renderArticles.url}
+            />
+          ))}
+        </Container>
       </div>
     );
   }
