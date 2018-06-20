@@ -35,16 +35,46 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
+  clearForm = event => {
+    event.preventDefault();
+    this.setState({
+      searchTerm: '',
+      searchNumber: 1,
+      startYear: '',
+      endYear: ''
+    });
+    document.getElementById('nyt-search-form').reset();
+  };
+
   clearArticles = event => {
     event.preventDefault();
-    this.setState({ returnedArticles: [] });
+    this.setState({
+      returnedArticles: []
+    });
+  };
+
+  returnArticles = () => {
+    return {this.state.returnedArticles.map(indArticle => (
+      <Articles
+        _id={indArticle._id}
+        key={indArticle._id}
+        title={indArticle.headline.main}
+        date={indArticle.pub_date}
+        url={indArticle.web_url}
+      />
+    ))}
   };
   render() {
     console.log(this.state);
     return (
       <div className="App">
-        <Form onChange={this.handleInputChange} onClick={this.searchArticles} />
-        <Articles />
+        <Form
+          onChange={this.handleInputChange}
+          onClick={this.searchArticles}
+          onClick2={this.clearForm}
+          onClick3={this.clearArticles}
+          returnArticles={this.returnArticles}
+        />
       </div>
     );
   }

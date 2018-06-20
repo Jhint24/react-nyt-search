@@ -2,7 +2,7 @@ import React from 'react';
 
 const Form = props => (
   <div className="container">
-    <form>
+    <form id="nyt-search-form">
       <div className="form-group">
         <label htmlFor="search">Search term</label>
         <input
@@ -54,7 +54,16 @@ const Form = props => (
         <i className="fa fa-search" /> Search
       </button>
       <span>{'               '}</span>
-      <button type="button" className="btn btn-default" id="clear-all" onClick={props.onClick2}>
+      <button type="button" className="btn btn-default" id="clear-form" onClick={props.onClick2}>
+        <i className="fa fa-trash" /> Clear Form
+      </button>
+      <span>{'               '}</span>
+      <button
+        type="button"
+        className="btn btn-default"
+        id="clear-articles"
+        onClick={props.onClick3}
+      >
         <i className="fa fa-trash" /> Clear Results
       </button>
     </form>
