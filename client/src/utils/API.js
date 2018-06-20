@@ -12,9 +12,8 @@ const API = {
       searchTerm +
       '&begin_date=' +
       startYear +
-      '0101&end_date=' +
-      endYear +
-      '0101';
+      '&end_date=' +
+      endYear;
     // Logging the URL so we have access to it for troubleshooting
     console.log('---------------\nURL: ' + queryURL + '\n---------------');
 

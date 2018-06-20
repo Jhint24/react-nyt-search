@@ -27,9 +27,11 @@ const Form = props => (
         </select>
       </div>
       <div className="form-group">
-        <label htmlFor="start-year">Start Date (DD/MM/YY) *Optional* </label>
+        <label htmlFor="start-year">Start Date (YYYYMMDD)</label>
         <input
-          type="text"
+          type="number"
+          min="19000101"
+          max="99991212"
           className="form-control"
           id="start-year"
           onChange={props.onChange}
@@ -37,9 +39,11 @@ const Form = props => (
         />
       </div>
       <div className="form-group">
-        <label htmlFor="end-year">End Date (DD/MM/YY) *Optional* </label>
+        <label htmlFor="end-year">End Date (YYYYMMDD)</label>
         <input
-          type="text"
+          type="number"
+          min="19000101"
+          max="99991212"
           className="form-control"
           id="end-year"
           onChange={props.onChange}

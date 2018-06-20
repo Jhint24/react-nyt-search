@@ -27,12 +27,7 @@ class App extends Component {
     console.log('startYear:', this.state.startYear);
     console.log('searchNumber:', this.state.searchNumber);
     console.log('endYear: ', this.state.endYear);
-    API.scrapeArticles(
-      this.state.searchTerm,
-      this.state.searchNumber,
-      this.state.startYear,
-      this.state.endYear
-    )
+    API.scrapeArticles(this.state)
       .then(res => {
         this.setState({ returnedArticles: res.data.response.docs });
         console.log('returnedArticles: ', this.state.returnedArticles);
