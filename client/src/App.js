@@ -54,15 +54,15 @@ class App extends Component {
   };
 
   returnArticles = () => {
-    return {this.state.returnedArticles.map(indArticle => (
+    return this.state.returnedArticles.map(indArticle => (
       <Articles
         _id={indArticle._id}
         key={indArticle._id}
-        title={indArticle.headline.main}
         date={indArticle.pub_date}
+        title={indArticle.headline.main}
         url={indArticle.web_url}
       />
-    ))}
+    ));
   };
   render() {
     console.log(this.state);

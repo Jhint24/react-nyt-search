@@ -67,6 +67,7 @@ const Form = props => (
         <i className="fa fa-trash" /> Clear Results
       </button>
     </form>
+    <div className="container">{props.returnArticles()}</div>
   </div>
 );
 
