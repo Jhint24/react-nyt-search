@@ -3,18 +3,29 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Search from './components/Search';
 import SavedArticles from './components/SavedArticles';
+import Search from './components/Form';
 
 class App extends Component {
+  state = {
+    searchTerm: '',
+    searchNumber: 1,
+    startYear: '',
+    endYear: '',
+    returnedArticles: []
+  };
+  handleInputChange = event => {
+    // Destructure the name and value properties off of event.target
+    // Update the appropriate state
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Navbar />
+        <Form />
       </div>
     );
   }
