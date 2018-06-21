@@ -21,18 +21,28 @@ class App extends Component {
   };
 
   searchArticles = event => {
+    const str = 'Please Enter a Valid Date',
+      div = document.getElementById('error-message');
+    div.innerHTML = '';
     event.preventDefault();
     console.log('Articles to follow');
     console.log('searchTerm:', this.state.searchTerm);
     console.log('startYear:', this.state.startYear);
     console.log('searchNumber:', this.state.searchNumber);
     console.log('endYear: ', this.state.endYear);
-    API.scrapeArticles(this.state)
-      .then(res => {
-        this.setState({ returnedArticles: res.data.response.docs });
-        console.log('returnedArticles: ', this.state.returnedArticles);
-      })
-      .catch(err => console.log(err));
+    const regEx = /^\d{4}\d{2}\d{2}$/;
+    if (!this.state.startYear.match(regEx) || !this.state.endYear.match(regEx)) {
+      document;
+
+      div.innerHTML = str;
+    } else {
+      API.scrapeArticles(this.state)
+        .then(res => {
+          this.setState({ returnedArticles: res.data.response.docs });
+          console.log('returnedArticles: ', this.state.returnedArticles);
+        })
+        .catch(err => console.log(err));
+    }
   };
 
   clearForm = event => {

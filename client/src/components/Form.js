@@ -29,9 +29,9 @@ const Form = props => (
       <div className="form-group">
         <label htmlFor="start-year">Start Date (YYYYMMDD)</label>
         <input
-          type="number"
-          min="19000101"
-          max="99991212"
+          type="text"
+          minLength="8"
+          maxLength="8"
           className="form-control"
           id="start-year"
           onChange={props.onChange}
@@ -41,14 +41,17 @@ const Form = props => (
       <div className="form-group">
         <label htmlFor="end-year">End Date (YYYYMMDD)</label>
         <input
-          type="number"
-          min="19000101"
-          max="99991212"
+          type="text"
+          minLength="8"
+          maxLength="8"
           className="form-control"
           id="end-year"
           onChange={props.onChange}
           name="endYear"
         />
+      </div>
+      <div id="error-message">
+        <h2 />
       </div>
       <button type="submit" className="btn btn-default" id="run-search" onClick={props.onClick}>
         <i className="fa fa-search" /> Search
