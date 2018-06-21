@@ -25,11 +25,11 @@ class App extends Component {
       div = document.getElementById('error-message');
     div.innerHTML = '';
     event.preventDefault();
-    console.log('Articles to follow');
-    console.log('searchTerm:', this.state.searchTerm);
-    console.log('startYear:', this.state.startYear);
-    console.log('searchNumber:', this.state.searchNumber);
-    console.log('endYear: ', this.state.endYear);
+    // console.log('Articles to follow');
+    // console.log('searchTerm:', this.state.searchTerm);
+    // console.log('startYear:', this.state.startYear);
+    // console.log('searchNumber:', this.state.searchNumber);
+    // console.log('endYear: ', this.state.endYear);
     const regEx = /^\d{4}\d{2}\d{2}$/;
     if (!this.state.startYear.match(regEx) || !this.state.endYear.match(regEx)) {
       document;
