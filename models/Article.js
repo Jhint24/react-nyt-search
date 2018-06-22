@@ -1,4 +1,4 @@
-const mongoose = reqire('mongoose');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ArticleSchema = new Schema({
@@ -16,7 +16,7 @@ const ArticleSchema = new Schema({
     required: true
   },
   summary: {
-    type: string,
+    type: String,
     required: true
   }
 });

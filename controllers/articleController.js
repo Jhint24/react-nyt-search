@@ -1,4 +1,4 @@
-const Article = require('../modelsArticle');
+const Article = require('../models/Article');
 
 module.exports = {
   getSaved: function(req, res) {

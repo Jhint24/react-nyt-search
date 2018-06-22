@@ -38,7 +38,10 @@ class App extends Component {
     } else {
       API.scrapeArticles(this.state)
         .then(res => {
-          this.setState({ returnedArticles: res.data.response.docs });
+          this.setState({
+            ///slice extracts from current array based on 2 parameters
+            returnedArticles: res.data.response.docs.slice(0, this.state.searchNumber)
+          });
           console.log('returnedArticles: ', this.state.returnedArticles);
         })
         .catch(err => console.log(err));
@@ -71,6 +74,7 @@ class App extends Component {
         date={indArticle.pub_date}
         title={indArticle.headline.main}
         url={indArticle.web_url}
+        summary={indArticle.snippet}
       />
     ));
   };
