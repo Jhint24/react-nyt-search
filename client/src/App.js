@@ -78,6 +78,26 @@ class App extends Component {
       />
     ));
   };
+  loadSaved = () => {
+    API.getSavedArticles()
+      .then(res =>
+        this.setState({
+          savedArticlesArray: res.data
+        })
+      )
+      .catch(err => console.log(err));
+  };
+
+  saveArticles = () => {
+    API.saveArticle({
+      title: this.state.title,
+      date: this.state.date,
+      url: this.state.url,
+      summary: this.state.summary
+    })
+      .then(res => this.loadSaved())
+      .catch(err => console.log(err));
+  };
   render() {
     console.log(this.state);
     return (
