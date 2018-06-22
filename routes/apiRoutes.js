@@ -3,7 +3,7 @@ const router = require('express').Router();
 const articleController = require('../controllers/articleController');
 
 router
-  .route('/')
+  .route('/api/articles')
   .get(articleController.getSaved)
   .post(articleController.saveArticle);
 

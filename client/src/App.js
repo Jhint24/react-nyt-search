@@ -13,6 +13,10 @@ class App extends Component {
     endYear: '',
     returnedArticles: []
   };
+
+  componentDidMount() {
+    this.loadSaved();
+  }
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -75,6 +79,7 @@ class App extends Component {
         title={indArticle.headline.main}
         url={indArticle.web_url}
         summary={indArticle.snippet}
+        saveArticles={this.saveArticles}
       />
     ));
   };

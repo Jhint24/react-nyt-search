@@ -50,9 +50,7 @@ const Form = props => (
           name="endYear"
         />
       </div>
-      <div id="error-message">
-        <h2 />
-      </div>
+      <div id="error-message" />
       <button type="submit" className="btn btn-default" id="run-search" onClick={props.onClick}>
         <i className="fa fa-search" /> Search
       </button>
