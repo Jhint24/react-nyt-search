@@ -11,7 +11,8 @@ class App extends Component {
     searchNumber: 1,
     startYear: '',
     endYear: '',
-    returnedArticles: []
+    returnedArticles: [],
+    savedArticlesArray: []
   };
 
   componentDidMount() {
@@ -92,6 +93,11 @@ class App extends Component {
       )
       .catch(err => console.log(err));
   };
+  //   handleSave = event => {
+  //     event.preventDefault();
+  //     this.saveArticles(event.target);
+  //   };
+  //   clickyEvent = this.handleSave.bind(this);
 
   saveArticles = () => {
     API.saveArticle({
@@ -101,7 +107,7 @@ class App extends Component {
       summary: this.state.summary
     })
       .then(res => this.loadSaved())
-      .catch(err => console.log(err));
+      .catch(err => console.log(err.response));
   };
   render() {
     console.log(this.state);
