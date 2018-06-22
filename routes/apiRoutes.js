@@ -4,7 +4,7 @@ const articleController = require('../controllers/articleController');
 
 router
   .route('/api/articles')
-  .get(articleController.getSaved)
-  .post(articleController.saveArticle);
+  .post(articleController.saveArticle)
+  .get(articleController.getSaved);
 
 module.exports = router;

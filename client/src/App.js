@@ -95,8 +95,14 @@ class App extends Component {
       .catch(err => console.log(err));
   };
 
-  saveArticles = () => {
-    API.saveArticle({})
+  saveArticles = event => {
+    console.log(event);
+    API.saveArticle({
+      title: this.state.returnedArticles.title,
+      url: this.state.returnedArticles.url,
+      date: this.state.returnedArticles.date,
+      summary: this.state.returnedArticles.summary
+    })
       .then(res => this.loadSaved())
       .catch(err => console.log(err.response));
   };

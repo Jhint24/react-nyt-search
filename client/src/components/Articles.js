@@ -16,9 +16,7 @@ const Articles = props => (
           type="button"
           className="btn btn-secondary btn-lg saved-btn"
           data-id={props.index}
-          onClick={() => {
-            props.saveArticles();
-          }}
+          onClick={props.saveArticles}
         >
           <i className="fa fa-save" /> Save Article{' '}
         </button>
