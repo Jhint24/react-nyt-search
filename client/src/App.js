@@ -11,7 +11,8 @@ class App extends Component {
     searchNumber: 1,
     startYear: '',
     endYear: '',
-    returnedArticles: []
+    returnedArticles: [],
+    savedArticlesArr: []
   };
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -78,16 +79,28 @@ class App extends Component {
       />
     ));
   };
+
+  saveArticles = (title, date, url, summary) => {
+    API.saveArticle({ title, date, url, summary }).then(res => {
+      this.setState({
+        savedArticlesArr: res.data
+      }).catch(err => {
+        console.log(err);
+      });
+    });
+  };
   render() {
     console.log(this.state);
     return (
       <div className="App">
+        <Nav />
         <Form
           onChange={this.handleInputChange}
           onClick={this.searchArticles}
           onClick2={this.clearForm}
           onClick3={this.clearArticles}
           returnArticles={this.returnArticles}
+          saveArticles={this.saveArticles}
         />
       </div>
     );
@@ -100,3 +113,7 @@ export default App;
 //user hits submit, send data from API and console.log it
 //this means breaking down query term into if this
 //once i get all of my results, work on save button and routes
+
+//make save button
+//grab id of article and append to button
+//when clicked, button sends article to saved array and saved database
