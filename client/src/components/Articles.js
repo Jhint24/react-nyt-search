@@ -15,7 +15,7 @@ const Articles = props => (
         <button
           type="button"
           className="btn btn-secondary btn-lg saved-btn"
-          data-id={props._id}
+          data-id={props.index}
           onClick={() => {
             props.saveArticles();
           }}

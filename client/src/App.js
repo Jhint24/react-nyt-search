@@ -72,7 +72,7 @@ class App extends Component {
   };
 
   returnArticles = () => {
-    return this.state.returnedArticles.map(indArticle => (
+    return this.state.returnedArticles.map((indArticle, index) => (
       <Articles
         _id={indArticle._id}
         key={indArticle._id}
@@ -81,6 +81,7 @@ class App extends Component {
         url={indArticle.web_url}
         summary={indArticle.snippet}
         saveArticles={this.saveArticles}
+        index={index}
       />
     ));
   };
@@ -93,19 +94,9 @@ class App extends Component {
       )
       .catch(err => console.log(err));
   };
-  //   handleSave = event => {
-  //     event.preventDefault();
-  //     this.saveArticles(event.target);
-  //   };
-  //   clickyEvent = this.handleSave.bind(this);
 
   saveArticles = () => {
-    API.saveArticle({
-      title: this.state.title,
-      date: this.state.date,
-      url: this.state.url,
-      summary: this.state.summary
-    })
+    API.saveArticle({})
       .then(res => this.loadSaved())
       .catch(err => console.log(err.response));
   };
@@ -131,3 +122,8 @@ export default App;
 //user hits submit, send data from API and console.log it
 //this means breaking down query term into if this
 //once i get all of my results, work on save button and routes
+//   handleSave = event => {
+//     event.preventDefault();
+//     this.saveArticles(event.target);
+//   };
+//   clickyEvent = this.handleSave.bind(this);
