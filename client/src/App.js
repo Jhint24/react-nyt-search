@@ -5,6 +5,7 @@ import Articles from './components/Articles';
 import SavedArticles from './components/SavedArticles';
 import Form from './components/Form';
 import API from './utils/API';
+
 class App extends Component {
   state = {
     searchTerm: '',
@@ -96,15 +97,17 @@ class App extends Component {
   };
 
   saveArticles = event => {
-    console.log(event);
-    API.saveArticle({
-      title: this.state.returnedArticles.title,
-      url: this.state.returnedArticles.url,
-      date: this.state.returnedArticles.date,
-      summary: this.state.returnedArticles.summary
-    })
-      .then(res => this.loadSaved())
-      .catch(err => console.log(err.response));
+    const copyofReturned = this.state.returnedArticles.slice();
+    const articleToSave = copyofReturned[event.target.getAttribute('data-id')];
+    const objectToSave = {};
+    objectToSave.title = articleToSave.headline.main;
+    objectToSave.url = articleToSave.web_url;
+    objectToSave.date = articleToSave.pub_date;
+    objectToSave.summary = articleToSave.snippet;
+
+    API.saveArticle(objectToSave)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   };
   render() {
     console.log(this.state);
