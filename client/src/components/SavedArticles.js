@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // import Articles from './components/Articles';
 // import Form from './components/Form';
 import API from '../utils/API';
+import Container from './Container';
 
 class SavedArticles extends Component {
   state = {
@@ -25,12 +26,8 @@ class SavedArticles extends Component {
 
   render() {
     console.log(this.state);
-    const SavedArticlesArray = this.state.savedArticlesArray;
-    return (
-      <Container>
-        <div>Hello World</div>
-      </Container>
-    );
+    const savedArticlesArray = this.state.savedArticlesArray;
+    return <Container>{savedArticlesArray.length > 0 && console.log('hello')}</Container>;
   }
 }
 export default SavedArticles;
