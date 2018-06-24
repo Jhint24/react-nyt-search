@@ -26,10 +26,14 @@ class SavedArticles extends Component {
 
   deleteArticles = event => {
     const copyOfSaved = this.state.savedArticlesArray.slice();
-    const articleToDelete = { _id: event.target.getAttribute('data-id') };
+    const clickTarget = event.target.getAttribute('data-id');
+    const articleToDelete = { _id: clickTarget };
     console.log(articleToDelete);
     API.deleteArticle(articleToDelete)
-      .then(res => console.log(res))
+      .then(res => {
+        copyOfSaved.splice(clickTarget, 1);
+        setTimeout(() => this.setState({ savedArticlesArray: copyOfSaved }), 400);
+      })
       .catch(err => console.log(err));
   };
 
