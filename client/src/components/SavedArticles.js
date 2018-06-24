@@ -38,21 +38,21 @@ class SavedArticles extends Component {
     const savedArticlesArray = this.state.savedArticlesArray;
     return (
       <Container>
-        {savedArticlesArray.length > 0 &&
-          savedArticlesArray.map((indArticle, index) => (
-            <div className="mb-4" key={index}>
-              <ArticlesSavedHTML
-                _id={indArticle._id}
-                key={indArticle._id}
-                date={indArticle.date}
-                title={indArticle.title}
-                url={indArticle.url}
-                summary={indArticle.summary}
-                deleteArticles={this.deleteArticles}
-                index={index}
-              />
-            </div>
-          ))}
+        {savedArticlesArray.length < 1 && <h2>No Saved Articles</h2>}
+        {savedArticlesArray.map((indArticle, index) => (
+          <div className="mb-4" key={index}>
+            <ArticlesSavedHTML
+              _id={indArticle._id}
+              key={indArticle._id}
+              date={indArticle.date}
+              title={indArticle.title}
+              url={indArticle.url}
+              summary={indArticle.summary}
+              deleteArticles={this.deleteArticles}
+              index={index}
+            />
+          </div>
+        ))}
       </Container>
     );
   }
