@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Articles from './Articles';
+import ArticlesSavedHTML from './ArticlesSavedHTML';
 // import Form from './components/Form';
 import API from '../utils/API';
 import Container from './Container';
@@ -32,7 +32,7 @@ class SavedArticles extends Component {
         {savedArticlesArray.length > 0 &&
           savedArticlesArray.map((indArticle, index) => (
             <div className="mb-4" key={index}>
-              <Articles
+              <ArticlesSavedHTML
                 _id={indArticle._id}
                 key={indArticle._id}
                 date={indArticle.date}
