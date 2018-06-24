@@ -18,7 +18,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 // insert into connect process.env.MONGODB_URI ||
-mongoose.connect('mongodb://localhost/nytsearch');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/nytsearch');
 
 // Start the API server
 app.listen(PORT, function() {
