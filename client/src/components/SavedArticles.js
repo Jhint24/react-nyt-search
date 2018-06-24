@@ -32,7 +32,7 @@ class SavedArticles extends Component {
     API.deleteArticle(articleToDelete)
       .then(res => {
         copyOfSaved.splice(clickTarget, 1);
-        setTimeout(() => this.setState({ savedArticlesArray: copyOfSaved }), 400);
+        setTimeout(() => this.setState({ savedArticlesArray: copyOfSaved }), 1000);
       })
       .catch(err => console.log(err));
   };
