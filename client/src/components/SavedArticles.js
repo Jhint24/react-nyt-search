@@ -24,6 +24,15 @@ class SavedArticles extends Component {
       .catch(err => console.log(err));
   };
 
+  deleteArticles = event => {
+    const copyOfSaved = this.state.savedArticlesArray.slice();
+    const articleToDelete = { _id: event.target.getAttribute('data-id') };
+    console.log(articleToDelete);
+    API.deleteArticle(articleToDelete)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  };
+
   render() {
     console.log(this.state);
     const savedArticlesArray = this.state.savedArticlesArray;
@@ -39,7 +48,7 @@ class SavedArticles extends Component {
                 title={indArticle.title}
                 url={indArticle.url}
                 summary={indArticle.summary}
-                // deleteArticles={this.deleteArticles}
+                deleteArticles={this.deleteArticles}
                 index={index}
               />
             </div>

@@ -14,8 +14,8 @@ const ArticlesSavedHTML = props => (
         <button
           type="button"
           className="btn btn-secondary btn-lg delete-btn"
-          data-id={props.index}
-          // onClick={props.saveArticles}
+          data-id={props._id}
+          onClick={props.deleteArticles}
         >
           <i className="fa fa-trash" /> Delete Saved{' '}
         </button>
