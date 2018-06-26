@@ -44,7 +44,7 @@ class SavedArticles extends Component {
       <Container>
         {savedArticlesArray.length < 1 && <h2>No Saved Articles</h2>}
         {savedArticlesArray.map((indArticle, index) => (
-          <div className="mb-4" key={index}>
+          <div className="mb-4">
             <ArticlesSavedHTML
               _id={indArticle._id}
               key={indArticle._id}

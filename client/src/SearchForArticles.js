@@ -13,7 +13,8 @@ class SearchForArticles extends Component {
     startYear: '',
     endYear: '',
     returnedArticles: [],
-    savedArticlesArray: []
+    savedArticlesArray: [],
+    savedMessage: ''
   };
 
   handleInputChange = event => {
@@ -103,7 +104,11 @@ class SearchForArticles extends Component {
     objectToSave.summary = articleToSave.snippet;
 
     API.saveArticle(objectToSave)
-      .then(res => console.log(res))
+      .then(res => {
+        this.setState({
+          returnedArticles: copyofReturned
+        });
+      })
       .catch(err => console.log(err));
   };
   render() {

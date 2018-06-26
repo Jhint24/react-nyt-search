@@ -5,7 +5,7 @@ const ArticlesSavedHTML = props => (
       <h3>{props.title}</h3>
       <p>{props.summary}</p>
       <p>
-        <button type="button" className="btn btn-info btn-lg link-btn" data-id={props._id}>
+        <button type="button" className="btn btn-info btn-lg link-btn" data-id={props.index}>
           <i className="fa fa-external-link" />{' '}
           <a href={props.url} target="_blank">
             Go to Article
@@ -14,7 +14,7 @@ const ArticlesSavedHTML = props => (
         <button
           type="button"
           className="btn btn-secondary btn-lg delete-btn"
-          data-id={props._id}
+          data-id={props.index}
           onClick={props.deleteArticles}
         >
           <i className="fa fa-trash" /> Delete Saved{' '}

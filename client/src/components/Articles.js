@@ -21,6 +21,7 @@ const Articles = props => (
           <i className="fa fa-save" /> Save Article{' '}
         </button>
       </p>
+      <p id="saved-message" />
     </div>
     <br />
     <br />
